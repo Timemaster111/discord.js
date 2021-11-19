@@ -72,4 +72,9 @@ class BaseClient extends EventEmitter {
   }
 }
 
+const NODE_VERSION = process.versions.node.split('.');
+if (NODE_VERSION[0].substr(1) < 16 || NODE_VERSION[1]<6) {
+  throw new Error('Requires Node 16.6 (or higher)');
+}
+
 module.exports = BaseClient;
